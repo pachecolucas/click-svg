@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Teste de clique em SVG</title>
+      <style>
+        svg {
+            width: min(80vw, 80vh);
+            aspect-ratio: 1 / 1;
+        }
+      </style>
+   </head>
+   <body>
+      <svg version="1.1" x="0px" y="0px" viewBox="0 0 222.37 222.37" xml:space="preserve">
+         <style type="text/css">
+            .st0{fill:#4593D8;}
+         </style>
+         <g>
+            <path onclick="teste()" class="st0" d="M0.5,221.87V0.5c59.08,0.13,114.6,23.2,156.38,64.98c41.79,41.79,64.85,97.31,64.98,156.38H0.5z"/>
+         </g>
+      </svg>
+      <script>
+         function teste() {
+             alert("Clicou")
+         }
+      </script>
+   </body>
+</html>
