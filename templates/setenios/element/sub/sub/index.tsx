@@ -13,19 +13,24 @@ type Pos = {
 
 const POSITIONS: Pos[] = [
   {
-    top: '8.8%',
-    left: '49%',
+    top: '0.7%',
+    left: '48.85%',
     rotate: '11.25deg',
   },
   {
-    top: '14.2%',
-    left: '62.7%',
+    top: '7.6%',
+    left: '65.3%',
     rotate: '33.75deg',
   },
   {
-    top: '24.5%',
-    left: '72.9%',
+    top: '20%',
+    left: '77.7%',
     rotate: '56.25deg',
+  },
+  {
+    top: '35.75%',
+    left: '84.1%',
+    rotate: '78.75deg',
   },
 ]
 
@@ -84,7 +89,7 @@ export default function SubSubElement(props: Props) {
 const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   /* aspect-ratio: 1 / 1; */
   position: absolute;
-  width: 16.3%;
+  width: 20%;
   top: ${(p) => p.pos.top};
   left: ${(p) => p.pos.left};
   /* border: 1px solid red; */

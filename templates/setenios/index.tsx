@@ -9,6 +9,7 @@ export default function Setenios(props: any) {
   return (
     <Wrapper>
       <Layer3>
+        <SubSubElement position={4} type="fire" />
         <SubSubElement position={3} type="air" />
         <SubSubElement position={2} type="earth" />
         <SubSubElement position={1} type="water" />
@@ -32,6 +33,9 @@ const Wrapper = styled.div`
   width: min(90vh, 90vw);
   position: relative;
   outline: 1px solid white;
+  background-image: url('/grid.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
 `
 
 const Layer1 = styled.div`
@@ -42,7 +46,7 @@ const Layer1 = styled.div`
   left: 50%;
   translate: -50% -50%;
   aspect-ratio: 1 / 1;
-  width: min(${SIZE / 1.618 / 1.618}vh, ${SIZE / 1.618 / 1.618}vw);
+  width: 46.5%;
 `
 
 const Layer2 = styled.div`
@@ -53,7 +57,7 @@ const Layer2 = styled.div`
   left: 50%;
   translate: -50% -50%;
   aspect-ratio: 1 / 1;
-  width: min(calc(${SIZE / 1.618}vh), calc(${SIZE / 1.618}vw));
+  width: 74%;
 `
 const Layer3 = styled.div`
   pointer-events: none;
@@ -62,5 +66,5 @@ const Layer3 = styled.div`
   left: 50%;
   translate: -50% -50%;
   aspect-ratio: 1 / 1;
-  width: ${SIZE}%;
+  width: 90%;
 `
