@@ -3,6 +3,7 @@ import { Body as EarthIcon } from '@styled-icons/ionicons-solid/'
 import { Brain as AirIcon } from '@styled-icons/boxicons-solid'
 import { Heart as WaterIcon } from '@styled-icons/entypo/'
 import { Sun as FireIcon } from '@styled-icons/boxicons-solid/'
+import { useState } from 'react'
 
 type Pos = {
   top: number | string
@@ -78,14 +79,27 @@ export default function Element(props: Props) {
   const POSITION: Pos = POSITIONS[props.position]
   const COLOR = COLORS[props.type]
 
+  const [hover, setHover] = useState(false)
+
   function handleClick() {
     alert('OI')
   }
+
+  function handleClickMouseEnter() {
+    setHover(true)
+  }
+
+  function handleClickMouseLeave() {
+    setHover(false)
+  }
+
   return (
-    <Wrapper pos={POSITION}>
+    <Wrapper pos={POSITION} hover={hover}>
       <Bg color={COLOR}>
         <svg viewBox="0 0 222.37 222.37" xmlSpace="preserve">
           <path
+            onMouseEnter={handleClickMouseEnter}
+            onMouseLeave={handleClickMouseLeave}
             onClick={handleClick}
             d="M.5 221.87V.5c59.08.13 114.6 23.2 156.38 64.98 41.79 41.79 64.85 97.31 64.98 156.38H.5z"
           />
@@ -101,7 +115,7 @@ export default function Element(props: Props) {
   )
 }
 
-const Wrapper = styled.div<{ pos: Pos }>`
+const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   aspect-ratio: 1 / 1;
   position: absolute;
   width: 50%;
@@ -110,22 +124,36 @@ const Wrapper = styled.div<{ pos: Pos }>`
   left: ${(p) => p.pos.left};
   bottom: ${(p) => p.pos.bottom};
   /* border: 1px solid red; */
-  transform: ${(p) => (p.pos.horFlip ? 'scaleX(-1)' : '')}
-    ${(p) => (p.pos.verFlip ? 'scaleY(-1)' : '')};
+  transform: ${(p) => {
+    if (p.pos.horFlip && p.pos.verFlip) return 'scaleX(-1) scaleY(-1)'
+    if (p.pos.horFlip) return 'scaleX(-1)'
+    if (p.pos.verFlip) return ' scaleY(-1)'
+  }};
+  transition: scale 0.3s, filter 0.3s;
+  scale: ${(p) => (p.hover ? '1.05' : '1')};
+  z-index: ${(p) => (p.hover ? '1' : '0')};
+  filter: ${(p) =>
+    p.hover ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'none'};
 `
 
 const Bg = styled.div<{ color: string }>`
   fill: ${(p) => p.color};
+  svg > path {
+    cursor: pointer;
+  }
 `
 
 const Icon = styled.div<{ pos: Pos }>`
   /* border: 1px solid white; */
   pointer-events: none;
-  width: 20vh;
+  width: min(20vh, 20vw);
   aspect-ratio: 1 / 1;
   position: absolute;
   top: 40%;
   left: 20%;
-  transform: ${(p) => (p.pos.horFlip ? 'scaleX(-1)' : '')}
-    ${(p) => (p.pos.verFlip ? 'scaleY(-1)' : '')};
+  transform: ${(p) => {
+    if (p.pos.horFlip && p.pos.verFlip) return 'scaleX(-1) scaleY(-1)'
+    if (p.pos.horFlip) return 'scaleX(-1)'
+    if (p.pos.verFlip) return ' scaleY(-1)'
+  }};
 `
