@@ -33,10 +33,10 @@ const COLORS = {
 
 type Props = {
   type: 'water' | 'air' | 'earth' | 'fire'
-  position: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+  position: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
 }
 
-export default function SubElement(props: Props) {
+export default function SubSubElement(props: Props) {
   const POSITION: Pos = POSITIONS[props.position - 1]
   const COLOR = COLORS[props.type]
 
