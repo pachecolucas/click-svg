@@ -6,60 +6,21 @@ import { Sun as FireIcon } from '@styled-icons/boxicons-solid/'
 import { useState } from 'react'
 
 type Pos = {
-  top: number | string
-  right: number | string
-  left: number | string
-  bottom: number | string
-  transform: string
-  horFlip: boolean
-  verFlip: boolean
+  top: string
+  left: string
+  rotate: string
 }
 
 const POSITIONS: Pos[] = [
   {
-    top: 0,
-    right: 0,
-    left: 'auto',
-    bottom: 'auto',
-    transform: 'scaleX(1)',
-    horFlip: false,
-    verFlip: false,
+    top: '3.3%',
+    left: '45.7%',
+    rotate: '22.5deg',
   },
   {
-    top: 0,
-    right: 0,
-    left: 'auto',
-    bottom: 'auto',
-    transform: 'scaleX(1)',
-    horFlip: false,
-    verFlip: false,
-  },
-  {
-    top: 'auto',
-    right: 0,
-    left: 'auto',
-    bottom: 0,
-    transform: 'scaleY(-1)',
-    horFlip: false,
-    verFlip: true,
-  },
-  {
-    top: 'auto',
-    right: 'auto',
-    left: 0,
-    bottom: 0,
-    transform: 'scaleX(-1) scaleY(-1)',
-    horFlip: true,
-    verFlip: true,
-  },
-  {
-    top: 0,
-    right: 'auto',
-    left: 0,
-    bottom: 'auto',
-    transform: 'scaleX(-1)',
-    horFlip: true,
-    verFlip: false,
+    top: '23.8%',
+    left: '66.3%',
+    rotate: '67.5deg',
   },
 ]
 
@@ -72,11 +33,11 @@ const COLORS = {
 
 type Props = {
   type: 'water' | 'air' | 'earth' | 'fire'
-  position: 1 | 2 | 3 | 4
+  position: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 }
 
-export default function Element(props: Props) {
-  const POSITION: Pos = POSITIONS[props.position]
+export default function SubElement(props: Props) {
+  const POSITION: Pos = POSITIONS[props.position - 1]
   const COLOR = COLORS[props.type]
 
   const [hover, setHover] = useState(false)
@@ -95,13 +56,13 @@ export default function Element(props: Props) {
 
   return (
     <Wrapper pos={POSITION} hover={hover}>
-      <Bg color={COLOR}>
-        <svg viewBox="0 0 222.37 222.37" xmlSpace="preserve">
+      <Bg pos={POSITION} color={COLOR}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166.19 93.15">
           <path
             onMouseEnter={handleClickMouseEnter}
             onMouseLeave={handleClickMouseLeave}
             onClick={handleClick}
-            d="M.5 221.87V.5c59.08.13 114.6 23.2 156.38 64.98 41.79 41.79 64.85 97.31 64.98 156.38H.5z"
+            d="m134.45 93.15 31.74-76.62C139.85 5.62 111.61 0 83.1 0S26.34 5.62 0 16.53l31.74 76.62a134.29 134.29 0 0 1 102.71 0z"
           />
         </svg>
       </Bg>
@@ -116,44 +77,35 @@ export default function Element(props: Props) {
 }
 
 const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
-  aspect-ratio: 1 / 1;
+  /* aspect-ratio: 1 / 1; */
   position: absolute;
-  width: 50%;
+  width: 39%;
   top: ${(p) => p.pos.top};
-  right: ${(p) => p.pos.right};
   left: ${(p) => p.pos.left};
-  bottom: ${(p) => p.pos.bottom};
   /* border: 1px solid red; */
-  transform: ${(p) => {
-    if (p.pos.horFlip && p.pos.verFlip) return 'scaleX(-1) scaleY(-1)'
-    if (p.pos.horFlip) return 'scaleX(-1)'
-    if (p.pos.verFlip) return ' scaleY(-1)'
-  }};
   transition: scale 0.3s, filter 0.3s;
   scale: ${(p) => (p.hover ? '1.05' : '1')};
   z-index: ${(p) => (p.hover ? '1' : '0')};
   filter: ${(p) =>
     p.hover ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'none'};
+  /* border: 1px dotted yellow; */
 `
 
-const Bg = styled.div<{ color: string }>`
+const Bg = styled.div<{ pos: Pos; color: string }>`
   fill: ${(p) => p.color};
   svg > path {
     cursor: pointer;
   }
+  rotate: ${(p) => p.pos.rotate};
+  /* border: 1px solid white; */
 `
 
 const Icon = styled.div<{ pos: Pos }>`
   /* border: 1px solid white; */
   pointer-events: none;
-  width: 50%;
+  width: 30%;
   aspect-ratio: 1 / 1;
   position: absolute;
-  top: 35%;
-  left: 20%;
-  transform: ${(p) => {
-    if (p.pos.horFlip && p.pos.verFlip) return 'scaleX(-1) scaleY(-1)'
-    if (p.pos.horFlip) return 'scaleX(-1)'
-    if (p.pos.verFlip) return ' scaleY(-1)'
-  }};
+  top: 20%;
+  left: 35%;
 `
