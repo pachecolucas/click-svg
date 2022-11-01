@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 import Element from './element'
 import SubElement from './element/sub'
+import SubSubElement from './element/sub/sub'
 
 const SIZE = 100
 
 export default function Setenios(props: any) {
   return (
     <Wrapper>
-      <Layer3></Layer3>
+      <Layer3>
+        <SubSubElement position={1} type="water" />
+        <SubSubElement position={2} type="earth" />
+      </Layer3>
       <Layer2>
         <SubElement position={1} type="water" />
         <SubElement position={2} type="earth" />

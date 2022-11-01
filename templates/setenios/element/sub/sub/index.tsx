@@ -13,14 +13,14 @@ type Pos = {
 
 const POSITIONS: Pos[] = [
   {
-    top: '3.3%',
-    left: '45.7%',
-    rotate: '22.5deg',
+    top: '8.8%',
+    left: '49%',
+    rotate: '11.25deg',
   },
   {
-    top: '23.8%',
-    left: '66.3%',
-    rotate: '67.5deg',
+    top: '14.4%',
+    left: '62.4%',
+    rotate: '33.75deg',
   },
 ]
 
@@ -57,12 +57,12 @@ export default function SubSubElement(props: Props) {
   return (
     <Wrapper pos={POSITION} hover={hover}>
       <Bg pos={POSITION} color={COLOR}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166.19 93.15">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104.73 55.44">
           <path
             onMouseEnter={handleClickMouseEnter}
             onMouseLeave={handleClickMouseLeave}
             onClick={handleClick}
-            d="m134.45 93.15 31.74-76.62C139.85 5.62 111.61 0 83.1 0S26.34 5.62 0 16.53l31.74 76.62a134.29 134.29 0 0 1 102.71 0z"
+            d="m94.73 55.44 10-50.28A268.454 268.454 0 0 0 52.36 0C34.78 0 17.24 1.73 0 5.16l10 50.28c27.97-5.56 56.76-5.56 84.73 0z"
           />
         </svg>
       </Bg>
@@ -79,7 +79,7 @@ export default function SubSubElement(props: Props) {
 const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   /* aspect-ratio: 1 / 1; */
   position: absolute;
-  width: 39%;
+  width: 16.3%;
   top: ${(p) => p.pos.top};
   left: ${(p) => p.pos.left};
   /* border: 1px solid red; */
