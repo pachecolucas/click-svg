@@ -32,13 +32,11 @@ const Wrapper = styled.div`
   width: min(90vh, 90vw);
   position: relative;
   outline: 1px solid white;
-  svg {
-    /* outline: 1px solid red; */
-  }
 `
 
 const Layer1 = styled.div`
   /* outline: 1px solid red; */
+  pointer-events: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -49,6 +47,7 @@ const Layer1 = styled.div`
 
 const Layer2 = styled.div`
   /* outline: 1px solid red; */
+  pointer-events: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -57,6 +56,7 @@ const Layer2 = styled.div`
   width: min(calc(${SIZE / 1.618}vh), calc(${SIZE / 1.618}vw));
 `
 const Layer3 = styled.div`
+  pointer-events: none;
   position: absolute;
   top: 50%;
   left: 50%;

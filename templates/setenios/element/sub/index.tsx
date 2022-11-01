@@ -88,15 +88,17 @@ const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   transition: scale 0.3s, filter 0.3s;
   scale: ${(p) => (p.hover ? '1.05' : '1')};
   z-index: ${(p) => (p.hover ? '9999' : '999')};
-  /* filter: ${(p) =>
-    p.hover ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'none'}; */
-  /* border: 1px dotted yellow; */
+  filter: ${(p) =>
+    p.hover
+      ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))'
+      : 'drop-shadow(0 0 2vh rgb(0 0 0 / 0.4))'};
 `
 
 const Bg = styled.div<{ pos: Pos; color: string }>`
   fill: ${(p) => p.color};
   svg > path {
     cursor: pointer;
+    pointer-events: all;
   }
   rotate: ${(p) => p.pos.rotate};
   /* border: 1px solid white; */

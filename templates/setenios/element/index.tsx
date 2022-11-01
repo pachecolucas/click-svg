@@ -17,8 +17,8 @@ type Pos = {
 
 const POSITIONS: Pos[] = [
   {
-    top: '0.1%',
-    right: '0.1%',
+    top: '0.15%',
+    right: '0.15%',
     left: 'auto',
     bottom: 'auto',
     transform: 'scaleX(1)',
@@ -27,9 +27,9 @@ const POSITIONS: Pos[] = [
   },
   {
     top: 'auto',
-    right: '0.1%',
+    right: '0.15%',
     left: 'auto',
-    bottom: '0.1%',
+    bottom: '0.15%',
     transform: 'scaleY(-1)',
     horFlip: false,
     verFlip: true,
@@ -37,16 +37,16 @@ const POSITIONS: Pos[] = [
   {
     top: 'auto',
     right: 'auto',
-    left: '0.1%',
-    bottom: '0.1%',
+    left: '0.15%',
+    bottom: '0.15%',
     transform: 'scaleX(-1) scaleY(-1)',
     horFlip: true,
     verFlip: true,
   },
   {
-    top: '0.1%',
+    top: '0.15%',
     right: 'auto',
-    left: '0.1%',
+    left: '0.15%',
     bottom: 'auto',
     transform: 'scaleX(-1)',
     horFlip: true,
@@ -123,14 +123,17 @@ const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   transition: scale 0.3s, filter 0.3s;
   scale: ${(p) => (p.hover ? '1.05' : '1')};
   z-index: ${(p) => (p.hover ? '1' : '0')};
-  /* filter: ${(p) =>
-    p.hover ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'none'}; */
+  filter: ${(p) =>
+    p.hover
+      ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))'
+      : 'drop-shadow(0 0 2vh rgb(0 0 0 / 0.4))'};
 `
 
 const Bg = styled.div<{ color: string }>`
   fill: ${(p) => p.color};
   svg > path {
     cursor: pointer;
+    pointer-events: all;
   }
 `
 
