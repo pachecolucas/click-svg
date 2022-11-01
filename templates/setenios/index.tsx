@@ -9,18 +9,19 @@ export default function Setenios(props: any) {
   return (
     <Wrapper>
       <Layer3>
-        <SubSubElement position={1} type="water" />
+        <SubSubElement position={3} type="air" />
         <SubSubElement position={2} type="earth" />
+        <SubSubElement position={1} type="water" />
       </Layer3>
       <Layer2>
-        <SubElement position={1} type="water" />
         <SubElement position={2} type="earth" />
+        <SubElement position={1} type="water" />
       </Layer2>
       <Layer1>
-        <Element position={1} type="water" />
-        <Element position={2} type="air" />
-        <Element position={3} type="earth" />
         <Element position={4} type="fire" />
+        <Element position={3} type="earth" />
+        <Element position={2} type="air" />
+        <Element position={1} type="water" />
       </Layer1>
     </Wrapper>
   )
@@ -31,6 +32,9 @@ const Wrapper = styled.div`
   width: min(90vh, 90vw);
   position: relative;
   outline: 1px solid white;
+  svg {
+    /* outline: 1px solid red; */
+  }
 `
 
 const Layer1 = styled.div`

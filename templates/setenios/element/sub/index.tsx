@@ -47,10 +47,12 @@ export default function SubElement(props: Props) {
   }
 
   function handleClickMouseEnter() {
+    console.log('in...')
     setHover(true)
   }
 
   function handleClickMouseLeave() {
+    console.log('out...')
     setHover(false)
   }
 
@@ -86,10 +88,8 @@ const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   transition: scale 0.3s, filter 0.3s;
   scale: ${(p) => (p.hover ? '1.05' : '1')};
   z-index: ${(p) => (p.hover ? '9999' : '999')};
-  filter: ${(p) =>
-    p.hover
-      ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))'
-      : 'drop-shadow(0 0 1vh rgb(0 0 0 / 0.4))'};
+  /* filter: ${(p) =>
+    p.hover ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'none'}; */
   /* border: 1px dotted yellow; */
 `
 

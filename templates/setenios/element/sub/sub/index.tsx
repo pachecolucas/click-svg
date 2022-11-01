@@ -18,9 +18,14 @@ const POSITIONS: Pos[] = [
     rotate: '11.25deg',
   },
   {
-    top: '14.4%',
-    left: '62.4%',
+    top: '14.2%',
+    left: '62.7%',
     rotate: '33.75deg',
+  },
+  {
+    top: '24.5%',
+    left: '72.9%',
+    rotate: '56.25deg',
   },
 ]
 
@@ -86,10 +91,8 @@ const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   transition: scale 0.3s, filter 0.3s;
   scale: ${(p) => (p.hover ? '1.05' : '1')};
   z-index: ${(p) => (p.hover ? '9999' : '999')};
-  filter: ${(p) =>
-    p.hover
-      ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))'
-      : 'drop-shadow(0 0 1vh rgb(0 0 0 / 0.4))'};
+  /* filter: ${(p) =>
+    p.hover ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'none'}; */
   /* border: 1px dotted yellow; */
 `
 
