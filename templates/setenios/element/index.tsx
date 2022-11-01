@@ -63,10 +63,10 @@ const POSITIONS: Pos[] = [
 ]
 
 const COLORS = {
-  water: 'blue',
-  air: 'yellow',
-  earth: 'green',
-  fire: 'red',
+  water: 'var(--color-water)',
+  air: 'var(--color-air)',
+  earth: 'var(--color-earth)',
+  fire: 'var(--color-fire)',
 }
 
 type Props = {
