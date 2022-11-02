@@ -10,12 +10,12 @@ export default function Setenios(props: any) {
     <Wrapper>
       <Layer3>
         <SubSubElement position={4} type="fire" />
-        <SubSubElement position={3} type="air" />
-        <SubSubElement position={2} type="earth" />
+        <SubSubElement position={3} type="earth" />
+        <SubSubElement position={2} type="air" />
         <SubSubElement position={1} type="water" />
       </Layer3>
       <Layer2>
-        <SubElement position={2} type="earth" />
+        <SubElement position={2} type="air" />
         <SubElement position={1} type="water" />
       </Layer2>
       <Layer1>
