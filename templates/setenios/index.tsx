@@ -2,12 +2,29 @@ import styled from 'styled-components'
 import Element from './element'
 import SubElement from './element/sub'
 import SubSubElement from './element/sub/sub'
-
-const SIZE = 100
+import Number from './element/number'
 
 export default function Setenios(props: any) {
   return (
     <Wrapper>
+      <Numbers>
+        <Number value={7 * 0} />
+        <Number value={7 * 1} />
+        <Number value={7 * 2} />
+        <Number value={7 * 3} />
+        <Number value={7 * 4} />
+        <Number value={7 * 5} />
+        <Number value={7 * 6} />
+        <Number value={7 * 7} />
+        <Number value={7 * 8} />
+        <Number value={7 * 9} />
+        <Number value={7 * 10} />
+        <Number value={7 * 11} />
+        <Number value={7 * 12} />
+        <Number value={7 * 13} />
+        <Number value={7 * 14} />
+        <Number value={7 * 15} />
+      </Numbers>
       <Layer3>
         <SubSubElement position={16} type="fire" />
         <SubSubElement position={15} type="earth" />
@@ -84,4 +101,15 @@ const Layer3 = styled.div`
   translate: -50% -50%;
   aspect-ratio: 1 / 1;
   width: 90%;
+`
+
+const Numbers = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: 50%;
 `
