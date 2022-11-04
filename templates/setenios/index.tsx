@@ -9,12 +9,30 @@ export default function Setenios(props: any) {
   return (
     <Wrapper>
       <Layer3>
+        <SubSubElement position={16} type="fire" />
+        <SubSubElement position={15} type="earth" />
+        <SubSubElement position={14} type="air" />
+        <SubSubElement position={13} type="water" />
+        <SubSubElement position={12} type="fire" />
+        <SubSubElement position={11} type="earth" />
+        <SubSubElement position={10} type="air" />
+        <SubSubElement position={9} type="water" />
+        <SubSubElement position={8} type="fire" />
+        <SubSubElement position={7} type="earth" />
+        <SubSubElement position={6} type="air" />
+        <SubSubElement position={5} type="water" />
         <SubSubElement position={4} type="fire" />
         <SubSubElement position={3} type="earth" />
         <SubSubElement position={2} type="air" />
         <SubSubElement position={1} type="water" />
       </Layer3>
       <Layer2>
+        <SubElement position={8} type="fire" />
+        <SubElement position={7} type="earth" />
+        <SubElement position={6} type="air" />
+        <SubElement position={5} type="water" />
+        <SubElement position={4} type="fire" />
+        <SubElement position={3} type="earth" />
         <SubElement position={2} type="air" />
         <SubElement position={1} type="water" />
       </Layer2>
@@ -32,7 +50,6 @@ const Wrapper = styled.div`
   aspect-ratio: 1 / 1;
   width: min(90vh, 90vw);
   position: relative;
-  outline: 1px solid white;
   background-image: url('/grid.png');
   background-repeat: no-repeat;
   background-size: 100%;

@@ -22,6 +22,36 @@ const POSITIONS: Pos[] = [
     left: '66.3%',
     rotate: '67.5deg',
   },
+  {
+    top: '53.8%',
+    left: '66.3%',
+    rotate: '112.5deg',
+  },
+  {
+    top: '74.5%',
+    left: '45.7%',
+    rotate: '157.5deg',
+  },
+  {
+    top: '74.5%',
+    left: '15.9%',
+    rotate: '202.5deg',
+  },
+  {
+    top: '53.8%',
+    left: '-5.1%',
+    rotate: '247.5deg',
+  },
+  {
+    top: '23.8%',
+    left: '-4.9%',
+    rotate: '292.5deg',
+  },
+  {
+    top: '3.3%',
+    left: '15.7%',
+    rotate: '337.5deg',
+  },
 ]
 
 const COLORS = {

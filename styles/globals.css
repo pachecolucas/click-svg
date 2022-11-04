@@ -1,8 +1,8 @@
 :root {
-  --color-fire: rgb(218, 193, 29);
-  --color-air: rgb(76, 76, 252);
-  --color-water: rgb(116, 190, 113);
-  --color-earth: rgb(248, 77, 34);
+  --color-fire: #ffb600;
+  --color-air: #00a7f6;
+  --color-water: #6dbd00;
+  --color-earth: #ff4000;
 }
 
 html,
