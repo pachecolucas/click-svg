@@ -6,11 +6,11 @@ export default function Outro() {
   return (
     <Wrapper>
       <Layer>
-        <Element type="title" title="CRIANÇA" />
-        <Element type="title" title="JOVEM" />
-        <Element type="title" title="ADULTO" />
-        <Element type="title" title="ANCIÃO" />
-        <Element type="title" title="ILUMINAÇÃO" />
+        <Element type="title" title="CRIANÇA" color="#149b18" />
+        <Element type="title" title="JOVEM" color="#22a1b8" />
+        <Element type="title" title="ADULTO" color="#9a22b8" />
+        <Element type="title" title="ANCIÃO" color="#90a516" />
+        <Element type="title" title="ILUMINAÇÃO" color="#d6581e" />
         <Element type="sou" title="CORPO" />
         <Element type="sou" title="REPUTAÇÃO" />
         <Element type="sou" title="MENTE" />
@@ -41,9 +41,9 @@ const Wrapper = styled.div`
   width: 60vw;
   position: relative;
   outline: white 2px solid;
-  @media only screen and (max-device-width: 414px) {
+  /* @media only screen and (max-device-width: 414px) {
     width: 95vw;
-  }
+  } */
 `
 const Layer = styled.div`
   width: 100%;

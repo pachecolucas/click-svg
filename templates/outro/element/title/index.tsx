@@ -5,6 +5,7 @@ type Props = {
   type: 'title' | 'ego' | 'sou'
   title: string
   subTitle?: string
+  color: 'dark' | 'light'
 }
 
 function Title(props: Props) {
@@ -48,9 +49,9 @@ function Title(props: Props) {
     }
   }
 
-  return <Container>{getContent()}</Container>
+  return <Container color={props.color}>{getContent()}</Container>
 }
-const Container = styled.span`
+const Container = styled.span<{ color: 'dark' | 'light' }>`
   h4 {
     font-size: 1.5vw;
   }
@@ -60,6 +61,7 @@ const Container = styled.span`
   p {
     font-size: 0.9vw;
   }
+  color: ${(p) => (p.color === 'dark' ? 'black' : 'white')};
 `
 const ContainerEgo = styled.div<{ subTitle: string | undefined }>`
   * {

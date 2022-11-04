@@ -6,6 +6,7 @@ type Props = {
   type: 'title' | 'ego' | 'sou'
   title: string
   subTitle?: string
+  color?: string
 }
 
 export default function Element(props: Props) {
@@ -23,11 +24,12 @@ export default function Element(props: Props) {
       onMouseEnter={handleClickMouseEnter}
       onMouseLeave={handleClickMouseLeave}
     >
-      <Bg color="blue">
+      <Bg color={props.color ? props.color : '#333'}>
         <Title
           type={props.type}
           title={props.title}
           subTitle={props.subTitle}
+          color="light"
         />
       </Bg>
     </Wrapper>
