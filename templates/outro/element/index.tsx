@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Title from './title'
 
 type Props = {
+  children?: JSX.Element[] | JSX.Element
   type: 'title' | 'ego' | 'sou'
   title: string
   subTitle?: string
@@ -23,26 +24,25 @@ export default function Element(props: Props) {
       hover={hover}
       onMouseEnter={handleClickMouseEnter}
       onMouseLeave={handleClickMouseLeave}
+      color={props.color ? props.color : '#333'}
     >
-      <Bg color={props.color ? props.color : '#333'}>
-        <Title
-          type={props.type}
-          title={props.title}
-          subTitle={props.subTitle}
-          color="light"
-        />
-      </Bg>
+      <Title
+        type={props.type}
+        title={props.title}
+        subTitle={props.subTitle}
+        color="light"
+      />
+      {props.children}
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div<{ hover: boolean }>`
+const Wrapper = styled.div<{ hover: boolean; color: string }>`
+  position: relative;
   outline: white 1px solid;
   scale: ${(p) => (p.hover ? '1.05' : '1')};
   transition: scale 0.3s, filter 0.3s;
   z-index: ${(p) => (p.hover ? '5' : '0')};
-`
-const Bg = styled.div<{ color: string }>`
   background-color: ${(p) => p.color};
   height: 100%;
   width: 100%;

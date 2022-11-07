@@ -51,23 +51,25 @@ function Title(props: Props) {
 
   return <Container color={props.color}>{getContent()}</Container>
 }
-const Container = styled.span<{ color: 'dark' | 'light' }>`
+const Container = styled.div<{ color: 'dark' | 'light' }>`
   h4 {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
   h3 {
-    font-size: 1.1vw;
+    font-size: 1.3vw;
   }
   p {
-    font-size: 0.9vw;
+    font-size: 1.1vw;
   }
+  height: 30%;
   color: ${(p) => (p.color === 'dark' ? 'black' : 'white')};
 `
 const ContainerEgo = styled.div<{ subTitle: string | undefined }>`
   * {
     margin: 0;
   }
-  height: ${(p) => (p.subTitle ? '30%' : '20%')};
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -76,7 +78,8 @@ const ContainerTitle = styled.div<{ subTitle: string | undefined }>`
   * {
     margin: 0;
   }
-  height: 20%;
+  padding-top: 5%;
+  width: 100%;
   display: flex;
   align-items: center;
   ${(p) =>
@@ -86,7 +89,8 @@ const ContainerSou = styled.div`
   * {
     margin: 0;
   }
-  height: 15%;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   place-items: center;

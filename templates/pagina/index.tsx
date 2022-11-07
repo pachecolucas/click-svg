@@ -5,31 +5,31 @@ export default function Pagina() {
   return (
     <Wrapper>
       <Layer>
+        <Element type="circle" />
+        <Element type="circle" />
+        <Element type="circle" />
+        <Element type="circle" />
+        <Element type="circle" />
+        <Element type="dot" />
+        <Element type="dot" />
+        <Element type="dot" />
+        <Element type="dot" />
+        <Element type="dot" />
         <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
-        <Element type="2dot" />
+        <Element type="diagonalL" />
+        <Element type="line" />
+        <Element type="diagonalR" />
+        <Element type="dot" />
+        <Element type="3dot" />
+        <Element type="3diagonalL" />
+        <Element type="triangle" />
+        <Element type="3diagonalR" />
+        <Element type="dot" />
+        <Element type="4dot" />
+        <Element type="4diagonalL" />
+        <Element type="square" />
+        <Element type="4diagonalR" />
+        <Element type="dot" />
       </Layer>
     </Wrapper>
   )
