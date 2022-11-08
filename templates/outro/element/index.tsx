@@ -10,7 +10,7 @@ type Props = {
   color?: string
 }
 
-export default function Element(props: Props) {
+export default function Elemente(props: Props) {
   const [hover, setHover] = useState<boolean>(false)
 
   function handleClickMouseEnter() {
