@@ -40,54 +40,51 @@ export default function Pagina() {
           subType="sou"
           title="CORPO"
           text="sou o que tenho"
+          img={1}
         />
         <Element
           type="dot"
           subType="sou"
           title="reputação"
           text="sou o que pensam de mim"
+          img={2}
         />
         <Element
           type="dot"
           subType="sou"
           title="mente"
           text="sou o que pensam de mim"
+          img={3}
         />
         <Element
           type="dot"
           subType="sou"
           title="consciência"
           text="sou o que observa"
+          img={4}
         />
-        <Element type="dot" subType="sou" title="sou" text="o que sou" />
-        <Element
-          type="2dot"
-          title="inconsciente"
-          subTitle="(possessivo)"
-          text="EU em MIM"
-          text2="VC para MIM"
-        />
-        <Element type="diagonalL" />
-        <Element type="line" />
-        <Element type="diagonalR" />
         <Element
           type="dot"
-          subType="ego"
-          title="consciente"
-          subTitle="(contemplativo)"
-          text="Eu no TODO"
-          text2="o TODO em MIM"
+          subType="sou"
+          title="sou"
+          text="o que sou"
+          img={5}
         />
-        <Element type="3dot" />
-        <Element type="3diagonalL" />
-        <Element type="triangle" />
-        <Element type="3diagonalR" />
-        <Element type="dot" />
-        <Element type="4dot" />
-        <Element type="4diagonalL" />
-        <Element type="square" />
-        <Element type="4diagonalR" />
-        <Element type="dot" />
+        <Element type="2dot" img={1} />
+        <Element type="diagonalL" img={2} />
+        <Element type="line" img={3} />
+        <Element type="diagonalR" img={4} />
+        <Element type="dot" subType="ego" img={5} />
+        <Element type="3dot" img={1} />
+        <Element type="3diagonalL" img={2} />
+        <Element type="triangle" img={3} />
+        <Element type="3diagonalR" img={4} />
+        <Element type="dot" subType="simple" img={5} />
+        <Element type="4dot" img={1} />
+        <Element type="4diagonalL" img={2} />
+        <Element type="square" img={3} />
+        <Element type="4diagonalR" img={4} />
+        <Element type="dot" subType="last" img={5} />
       </Layer>
     </Wrapper>
   )

@@ -21,11 +21,12 @@ export type Props = {
     | 'diagonalL'
     | '3diagonalL'
     | '4diagonalL'
-  subType?: 'sou' | 'ego'
+  subType?: 'sou' | 'ego' | 'simple' | 'last'
   text: string
   title: string
   subTitle?: string
   text2?: string
+  img: number
 }
 
 export default function Element(props: Props) {
@@ -54,7 +55,10 @@ const Wrapper = styled.div<{ hover: boolean }>`
   z-index: ${(p) => (p.hover ? '1' : '0')};
   transition: scale 0.3s, z-index 0.1s, height 0.3s;
   min-height: 100%;
-  height: ${(p) => (p.hover ? 'fit-content' : 'inherit')};
+  /* height: 100%;
+  width: 100%; */
+  /* height: ${(p) => (p.hover ? 'fit-content' : 'inherit')};
+  width: ${(p) => (p.hover ? 'fit-content' : '100%')}; */
   background-color: black;
 `
 const Bg = styled.div<{ color: string }>`

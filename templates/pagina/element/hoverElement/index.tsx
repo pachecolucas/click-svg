@@ -8,8 +8,8 @@ type Props = {
 
 export default function HoverElement(props: Props) {
   return (
-    <Wrapper>
-      <Text title={props.title}>
+    <Wrapper title={props.title}>
+      <Text>
         <h3>{props.title}</h3>
         <p style={{ textAlign: 'center' }}>{props.subTitle}</p>
       </Text>
@@ -34,26 +34,31 @@ export default function HoverElement(props: Props) {
     </Wrapper>
   )
 }
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ title: string }>`
   h3 {
-    font-size: larger;
-  }
-  height: fit-content;
-  width: 100%;
-  background-color: black;
-`
-const Text = styled.div<{ title: string }>`
-  h3 {
-    font-size: ${(p) => (p.title.length > 9 ? '1.3vw' : 'larger')};
+    font-size: ${(p) => (p.title.length > 9 ? '1.7vw' : 'larger')};
   }
   p {
     font-size: medium;
   }
+  @media only screen and (max-device-width: 414px) {
+    h3 {
+      font-size: 2vw;
+    }
+    p {
+      font-size: 1.5vw;
+    }
+  }
+  height: fit-content;
+  width: fit-content;
+  background-color: black;
+`
+const Text = styled.div`
   display: grid;
   place-items: center;
 `
 const ContainerCircle = styled.div`
-  min-height: 100px;
+  min-height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
