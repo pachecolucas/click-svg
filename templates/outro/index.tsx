@@ -55,9 +55,6 @@ const Wrapper = styled.div`
   width: 60vw;
   position: relative;
   outline: white 2px solid;
-  /* @media only screen and (max-device-width: 414px) {
-    width: 95vw;
-  } */
 `
 const Layer = styled.div`
   width: 100%;

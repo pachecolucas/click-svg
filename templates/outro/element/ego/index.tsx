@@ -4,7 +4,7 @@ import Svg from './svg'
 type Props = {
   color?: string
   text: string
-  text2: string
+  text2?: string
   position: 1 | 2 | 3 | 4
 }
 type POS = {
@@ -34,7 +34,7 @@ export default function Ego(props: Props) {
 }
 
 const Wrapper = styled.div<{ color?: string }>`
-  height: 70%;
+  height: 60%;
   position: relative;
 
   color: ${(p) => (p.color ? p.color : 'white')};

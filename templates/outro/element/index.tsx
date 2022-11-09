@@ -8,24 +8,12 @@ type Props = {
   title: string
   subTitle?: string
   color?: string
+  hover?: boolean
 }
 
 export default function Elemente(props: Props) {
-  const [hover, setHover] = useState<boolean>(false)
-
-  function handleClickMouseEnter() {
-    setHover(true)
-  }
-  function handleClickMouseLeave() {
-    setHover(false)
-  }
   return (
-    <Wrapper
-      hover={hover}
-      onMouseEnter={handleClickMouseEnter}
-      onMouseLeave={handleClickMouseLeave}
-      color={props.color ? props.color : '#333'}
-    >
+    <Wrapper hover={props.hover} color={props.color ? props.color : '#333'}>
       <Title
         type={props.type}
         title={props.title}
@@ -37,13 +25,12 @@ export default function Elemente(props: Props) {
   )
 }
 
-const Wrapper = styled.div<{ hover: boolean; color: string }>`
+const Wrapper = styled.div<{ hover: boolean | undefined; color: string }>`
   position: relative;
   outline: white 1px solid;
-  scale: ${(p) => (p.hover ? '1.05' : '1')};
   transition: scale 0.3s, filter 0.3s;
-  z-index: ${(p) => (p.hover ? '5' : '0')};
   background-color: ${(p) => p.color};
-  height: 100%;
+  min-height: 100%;
+  height: ${(p) => (p.hover ? 'fit-content' : 'inherit')};
   width: 100%;
 `

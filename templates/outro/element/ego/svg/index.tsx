@@ -6,14 +6,16 @@ type POS = {
 }
 
 type Props = {
-  text: string
+  text?: string
   textTop?: string
   pos: POS
 }
 
 export default function Svg(props: Props) {
-  const text = props.text.split(' ').splice(1).join().replace(',', ' ')
-  const text1 = props.text.split(' ')[0]
+  const text = props.text
+    ? props.text.split(' ').splice(1).join().replace(',', ' ')
+    : null
+  const text1 = props.text ? props.text.split(' ')[0] : null
 
   const textTop = props.textTop
     ? props.textTop.split(' ').splice(1).join().replace(',', ' ')
@@ -44,7 +46,6 @@ const Wrapper = styled.div<{ pos: POS }>`
 
   p {
     text-align: center;
-    font-size: 0.8vw;
-    margin: 0;
+    font-size: 0.4vw;
   }
 `

@@ -11,15 +11,13 @@ export default function Sou(props: Props) {
       <svg viewBox="0 0 100 100" width="30%" height="30%" xmlSpace="preserve">
         <circle cx="50" cy="50" r="40" />
       </svg>
-      <p style={{ fontSize: '1.1vw', textAlign: 'center', margin: '0' }}>
-        {props.title}
-      </p>
+      <p style={{ textAlign: 'center', margin: '0' }}>{props.title}</p>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div<{ color?: string }>`
-  height: 70%;
+  height: 100%;
   padding-top: 10%;
   display: flex;
   flex-direction: column;

@@ -22,7 +22,7 @@ function Title(props: Props) {
         break
       case 'ego':
         return (
-          <ContainerEgo subTitle={props.subTitle}>
+          <ContainerEgo>
             <h4 style={{ fontWeight: 'normal' }}>EGO</h4>
             <h3>
               <strong>{title}</strong>
@@ -52,23 +52,13 @@ function Title(props: Props) {
   return <Container color={props.color}>{getContent()}</Container>
 }
 const Container = styled.div<{ color: 'dark' | 'light' }>`
-  h4 {
-    font-size: 1.2vw;
-  }
-  h3 {
-    font-size: 1.3vw;
-  }
-  p {
-    font-size: 1.1vw;
-  }
-  height: 30%;
   color: ${(p) => (p.color === 'dark' ? 'black' : 'white')};
 `
-const ContainerEgo = styled.div<{ subTitle: string | undefined }>`
+const ContainerEgo = styled.div`
   * {
     margin: 0;
   }
-  height: 100%;
+  height: 40%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -78,6 +68,7 @@ const ContainerTitle = styled.div<{ subTitle: string | undefined }>`
   * {
     margin: 0;
   }
+  height: 30%;
   padding-top: 5%;
   width: 100%;
   display: flex;
@@ -89,7 +80,7 @@ const ContainerSou = styled.div`
   * {
     margin: 0;
   }
-  height: 100%;
+  height: 30%;
   width: 100%;
   display: flex;
   flex-direction: column;

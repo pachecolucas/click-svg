@@ -30,3 +30,28 @@ a {
 * {
   box-sizing: border-box;
 }
+p,
+h3,
+h4 {
+  margin: 0;
+}
+h4 {
+  font-size: 1.2vw;
+}
+h3 {
+  font-size: 1.3vw;
+}
+p {
+  font-size: 0.8vw;
+}
+@media only screen and (min-device-width: 1300px) {
+  h3 {
+    font-size: 0.85vw;
+  }
+  h4 {
+    font-size: 0.75vw;
+  }
+  p {
+    font-size: 0.6vw;
+  }
+}
