@@ -57,8 +57,8 @@ const Wrapper = styled.div<{ hover: boolean }>`
   min-height: 100%;
   /* height: 100%;
   width: 100%; */
-  /* height: ${(p) => (p.hover ? 'fit-content' : 'inherit')};
-  width: ${(p) => (p.hover ? 'fit-content' : '100%')}; */
+  height: ${(p) => (p.hover ? 'fit-content' : 'inherit')};
+  width: ${(p) => (p.hover ? 'fit-content' : '100%')};
   background-color: black;
 `
 const Bg = styled.div<{ color: string }>`

@@ -9,15 +9,18 @@ export default function Sou(props: Props) {
     <Wrapper>
       <img
         style={{ height: '100%', width: '100%' }}
-        src={`sou${props.img}.jpg`}
+        src={`pagina/sou${props.img}.jpg`}
         alt=""
       />
     </Wrapper>
   )
 }
 const Wrapper = styled.div`
-  height: 100%;
-  width: 100%;
+  /* max-height: 200px; */
+  height: fit-content;
+  width: fit-content;
+  /* height: 100%;
+  width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;

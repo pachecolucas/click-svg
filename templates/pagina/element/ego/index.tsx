@@ -9,15 +9,20 @@ export default function Ego(props: Props) {
     <Wrapper>
       <img
         style={{ height: '100%', width: '100%' }}
-        src={`ego${props.img}.jpg`}
+        src={`pagina/ego${props.img}.jpg`}
         alt=""
       />
     </Wrapper>
   )
 }
 const Wrapper = styled.div`
-  height: 100%;
-  width: 100%;
+  @media only screen and (max-device-width: 414px) {
+    min-width: 60px;
+    min-height: 50px;
+  }
+  height: fit-content;
+  width: fit-content;
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
