@@ -1,3 +1,4 @@
+import Elemente from 'templates/outro/element'
 import Ego from './ego'
 import { Props } from '.'
 import Sou from './sou'
