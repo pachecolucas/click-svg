@@ -1,23 +1,18 @@
-import Elemente from 'templates/outro/element'
 import Ego from './ego'
 import { Props } from '.'
 import Sou from './sou'
 import styled from 'styled-components'
-import HoverElement from './hoverElement'
 import Simple from './simple'
 import Last from './last'
+import Start from './start'
 
-export default function getContent(type: string, hover: boolean, props: Props) {
+export default function getContent(type: string, props: Props) {
   switch (type) {
     case 'circle':
       return (
         <>
-          {hover ? (
-            <HoverElement
-              title={props.title}
-              subTitle={props.subTitle}
-              text={props.text}
-            ></HoverElement>
+          {props.row === props.isRow ? (
+            <Start img={props.img} />
           ) : (
             <svg
               viewBox="0 0 100 100"
@@ -40,7 +35,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case 'dot':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <>
               {props.subType === 'sou' ? <Sou img={props.img} /> : null}
               {props.subType === 'ego' ? <Ego img={props.img} /> : null}
@@ -64,7 +59,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case '2dot':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -91,7 +86,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case '3dot':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
@@ -126,7 +121,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case '4dot':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -169,7 +164,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case 'line':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -197,7 +192,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case 'diagonalL':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -225,7 +220,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case 'diagonalR':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -253,7 +248,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case '3diagonalL':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
@@ -282,7 +277,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case '3diagonalR':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
@@ -311,7 +306,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case '4diagonalL':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -341,7 +336,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case '4diagonalR':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -371,7 +366,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case 'square':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -425,7 +420,7 @@ export default function getContent(type: string, hover: boolean, props: Props) {
     case 'triangle':
       return (
         <>
-          {hover ? (
+          {props.row === props.isRow ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
