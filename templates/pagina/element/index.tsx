@@ -27,7 +27,13 @@ export type Props = {
 export default function Element(props: Props) {
   return (
     <Wrapper row={props.row} isRow={props.isRow}>
-      <Bg color="white">{getContent(props.type, props)}</Bg>
+      <Bg color="white">
+        {getContent(
+          props.type,
+          props.row === props.isRow || props.row === 6,
+          props
+        )}
+      </Bg>
     </Wrapper>
   )
 }
@@ -40,7 +46,8 @@ const Wrapper = styled.div<{ row: number; isRow: number }>`
   min-height: 100%;
   /* height: 100%;
   width: 100%; */
-  height: ${(p) => (p.row === p.isRow ? 'fit-content' : 'inherit')};
+  height: ${(p) =>
+    p.row === p.isRow || p.row === 6 ? 'fit-content' : 'inherit'};
   width: 100%;
 `
 const Bg = styled.div<{ color: string }>`

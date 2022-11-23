@@ -22,7 +22,7 @@ export default function Pagina() {
   })
 
   return (
-    <Wrapper>
+    <Wrapper row={row}>
       <Layer row={row}>
         <Element row={row} isRow={1} img={1} type="circle" />
         <Element isRow={1} row={row} type="circle" img={2} />
@@ -53,12 +53,13 @@ export default function Pagina() {
     </Wrapper>
   )
 }
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ row: number }>`
   aspect-ratio: 1 / 1;
   width: min(80vh, 80vw);
   position: relative;
   outline: white 2px solid;
   border-radius: 50%;
+  height: ${(p) => (p.row === 6 ? 'fit-content' : 'inherit')};
   @media only screen and (max-device-width: 414px) {
     width: 95vw;
   }
@@ -74,5 +75,8 @@ const Layer = styled.div<{ row: number }>`
   width: ${(p) => (p.row > 0 ? '100%' : '70.4%')};
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-rows: ${(p) =>
+    p.row === 6
+      ? 'min-content min-content min-content min-content min-content'
+      : '20% 20% 20% 20% 20%'};
 `

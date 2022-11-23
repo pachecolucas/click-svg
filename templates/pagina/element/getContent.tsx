@@ -6,12 +6,12 @@ import Simple from './simple'
 import Last from './last'
 import Start from './start'
 
-export default function getContent(type: string, props: Props) {
+export default function getContent(type: string, front: boolean, props: Props) {
   switch (type) {
     case 'circle':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Start img={props.img} />
           ) : (
             <svg
@@ -35,7 +35,7 @@ export default function getContent(type: string, props: Props) {
     case 'dot':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <>
               {props.subType === 'sou' ? <Sou img={props.img} /> : null}
               {props.subType === 'ego' ? <Ego img={props.img} /> : null}
@@ -59,7 +59,7 @@ export default function getContent(type: string, props: Props) {
     case '2dot':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -86,7 +86,7 @@ export default function getContent(type: string, props: Props) {
     case '3dot':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
@@ -121,7 +121,7 @@ export default function getContent(type: string, props: Props) {
     case '4dot':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -164,7 +164,7 @@ export default function getContent(type: string, props: Props) {
     case 'line':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -192,7 +192,7 @@ export default function getContent(type: string, props: Props) {
     case 'diagonalL':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -220,7 +220,7 @@ export default function getContent(type: string, props: Props) {
     case 'diagonalR':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Ego img={props.img} />
           ) : (
             <SvgContainer>
@@ -248,7 +248,7 @@ export default function getContent(type: string, props: Props) {
     case '3diagonalL':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
@@ -277,7 +277,7 @@ export default function getContent(type: string, props: Props) {
     case '3diagonalR':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
@@ -306,7 +306,7 @@ export default function getContent(type: string, props: Props) {
     case '4diagonalL':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -336,7 +336,7 @@ export default function getContent(type: string, props: Props) {
     case '4diagonalR':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -366,7 +366,7 @@ export default function getContent(type: string, props: Props) {
     case 'square':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Last img={props.img} />
           ) : (
             <SvgContainer>
@@ -420,7 +420,7 @@ export default function getContent(type: string, props: Props) {
     case 'triangle':
       return (
         <>
-          {props.row === props.isRow ? (
+          {front ? (
             <Simple img={props.img} />
           ) : (
             <SvgContainer>
