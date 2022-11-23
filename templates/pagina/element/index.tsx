@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import getContent from './getContent'
 
@@ -42,7 +42,6 @@ const Wrapper = styled.div<{ row: number; isRow: number }>`
   width: 100%; */
   height: ${(p) => (p.row === p.isRow ? 'fit-content' : 'inherit')};
   width: 100%;
-  background-color: black;
 `
 const Bg = styled.div<{ color: string }>`
   fill: ${(p) => p.color};
@@ -50,6 +49,7 @@ const Bg = styled.div<{ color: string }>`
     cursor: pointer;
     pointer-events: all;
   }
+  background-color: black;
   // center
   height: 100%;
   width: 100%;
