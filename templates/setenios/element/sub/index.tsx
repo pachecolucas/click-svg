@@ -64,38 +64,22 @@ const COLORS = {
 type Props = {
   type: 'water' | 'air' | 'earth' | 'fire'
   position: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+  row: { layer: number; area: number }
+  layer: number
 }
 
 export default function SubElement(props: Props) {
   const POSITION: Pos = POSITIONS[props.position - 1]
   const COLOR = COLORS[props.type]
 
-  const [hover, setHover] = useState(false)
-
-  function handleClick() {
-    console.log('Clicou')
-  }
-
-  function handleClickMouseEnter() {
-    console.log('in...')
-    setHover(true)
-  }
-
-  function handleClickMouseLeave() {
-    console.log('out...')
-    setHover(false)
-  }
+  const hover =
+    props.row.area === props.position && props.row.layer === props.layer
 
   return (
     <Wrapper pos={POSITION} hover={hover}>
       <Bg pos={POSITION} color={COLOR}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166.19 93.15">
-          <path
-            onMouseEnter={handleClickMouseEnter}
-            onMouseLeave={handleClickMouseLeave}
-            onClick={handleClick}
-            d="m134.45 93.15 31.74-76.62C139.85 5.62 111.61 0 83.1 0S26.34 5.62 0 16.53l31.74 76.62a134.29 134.29 0 0 1 102.71 0z"
-          />
+          <path d="m134.45 93.15 31.74-76.62C139.85 5.62 111.61 0 83.1 0S26.34 5.62 0 16.53l31.74 76.62a134.29 134.29 0 0 1 102.71 0z" />
         </svg>
       </Bg>
       <Icon pos={POSITION}>
