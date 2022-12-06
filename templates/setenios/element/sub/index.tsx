@@ -64,19 +64,22 @@ const COLORS = {
 type Props = {
   type: 'water' | 'air' | 'earth' | 'fire'
   position: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-  row: { layer: number; area: number }
-  layer: number
+  active: boolean
 }
 
 export default function SubElement(props: Props) {
   const POSITION: Pos = POSITIONS[props.position - 1]
   const COLOR = COLORS[props.type]
+  const [clicked, setClicked] = useState(false)
 
-  const hover =
-    props.row.area === props.position && props.row.layer === props.layer
+  const active = props.active || clicked
+
+  const handleClick = () => {
+    setClicked(!clicked)
+  }
 
   return (
-    <Wrapper pos={POSITION} hover={hover}>
+    <Wrapper pos={POSITION} active={active} onClick={handleClick}>
       <Bg pos={POSITION} color={COLOR}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166.19 93.15">
           <path d="m134.45 93.15 31.74-76.62C139.85 5.62 111.61 0 83.1 0S26.34 5.62 0 16.53l31.74 76.62a134.29 134.29 0 0 1 102.71 0z" />
@@ -92,7 +95,7 @@ export default function SubElement(props: Props) {
   )
 }
 
-const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
+const Wrapper = styled.div<{ pos: Pos; active: boolean }>`
   /* aspect-ratio: 1 / 1; */
   position: absolute;
   width: 39%;
@@ -100,12 +103,10 @@ const Wrapper = styled.div<{ pos: Pos; hover: boolean }>`
   left: ${(p) => p.pos.left};
   /* border: 1px solid red; */
   transition: scale 0.3s, filter 0.3s;
-  scale: ${(p) => (p.hover ? '1.05' : '1')};
-  z-index: ${(p) => (p.hover ? '9999' : '999')};
+  scale: ${(p) => (p.active ? '1.05' : '1')};
+  z-index: ${(p) => (p.active ? '9999' : '999')};
   filter: ${(p) =>
-    p.hover
-      ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))'
-      : 'drop-shadow(0 0 2vh rgb(0 0 0 / 0.4))'};
+    p.active ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'grayscale(50%)'};
 `
 
 const Bg = styled.div<{ pos: Pos; color: string }>`

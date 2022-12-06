@@ -6,55 +6,38 @@ import SubSubElement from './element/sub/sub'
 import Number from './element/number'
 
 export default function Setenios(props: any) {
-  const [row, setRow] = useState({
-    layer: 1,
-    area: 1,
-  })
-  console.log(row)
+  const [layer, setLayer] = useState(1)
+  const layer1 = layer === 1
+  const layer2 = layer === 2
+  const layer3 = layer === 3
+
+  const [quadrant, setQuadrant] = useState(0)
+  const quadrant1 = quadrant === 1
+  const quadrant2 = quadrant === 2
+  const quadrant3 = quadrant === 3
+  const quadrant4 = quadrant === 4
 
   function keyDown(e: KeyboardEvent) {
     switch (e.key) {
       case 'ArrowUp':
-        if (row.layer !== 3) {
-          setRow({ layer: row.layer + 1, area: row.area * 2 })
+        if (layer !== 3) {
+          setLayer(layer + 1)
         }
         break
       case 'ArrowDown':
-        if (row.layer !== 1) {
-          setRow({ layer: row.layer - 1, area: Math.round(row.area / 2) })
+        if (layer !== 0) {
+          setLayer(layer - 1)
         }
         break
       case 'ArrowLeft':
-        if (row.layer === 3) {
-          if (row.area === 1) {
-            setRow({ ...row, area: 4 * (row.layer + 1) })
-          } else {
-            setRow({ ...row, area: row.area - 1 })
-          }
-        } else {
-          if (row.area === 1) {
-            setRow({ ...row, area: 4 * row.layer })
-          } else {
-            setRow({ ...row, area: row.area - 1 })
-          }
+        if (quadrant !== 0) {
+          setQuadrant(quadrant - 1)
         }
-
         break
       case 'ArrowRight':
-        if (row.layer === 3) {
-          if (row.area === 4 * (row.layer + 1)) {
-            setRow({ ...row, area: 1 })
-          } else {
-            setRow({ ...row, area: row.area + 1 })
-          }
-        } else {
-          if (row.area === 4 * row.layer) {
-            setRow({ ...row, area: 1 })
-          } else {
-            setRow({ ...row, area: row.area + 1 })
-          }
+        if (quadrant !== 4) {
+          setQuadrant(quadrant + 1)
         }
-
         break
     }
   }
@@ -84,38 +67,50 @@ export default function Setenios(props: any) {
         <Number value={7 * 15} />
       </Numbers>
       <Layer3>
-        <SubSubElement position={16} type="fire" row={row} layer={3} />
-        <SubSubElement position={15} type="earth" row={row} layer={3} />
-        <SubSubElement position={14} type="air" row={row} layer={3} />
-        <SubSubElement position={13} type="water" row={row} layer={3} />
-        <SubSubElement position={12} type="fire" row={row} layer={3} />
-        <SubSubElement position={11} type="earth" row={row} layer={3} />
-        <SubSubElement position={10} type="air" row={row} layer={3} />
-        <SubSubElement position={9} type="water" row={row} layer={3} />
-        <SubSubElement position={8} type="fire" row={row} layer={3} />
-        <SubSubElement position={7} type="earth" row={row} layer={3} />
-        <SubSubElement position={6} type="air" row={row} layer={3} />
-        <SubSubElement position={5} type="water" row={row} layer={3} />
-        <SubSubElement position={4} type="fire" row={row} layer={3} />
-        <SubSubElement position={3} type="earth" row={row} layer={3} />
-        <SubSubElement position={2} type="air" row={row} layer={3} />
-        <SubSubElement position={1} type="water" row={row} layer={3} />
+        <SubSubElement position={16} type="fire" active={layer3 || quadrant4} />
+        <SubSubElement
+          position={15}
+          type="earth"
+          active={layer3 || quadrant4}
+        />
+        <SubSubElement position={14} type="air" active={layer3 || quadrant4} />
+        <SubSubElement
+          position={13}
+          type="water"
+          active={layer3 || quadrant4}
+        />
+        <SubSubElement position={12} type="fire" active={layer3 || quadrant3} />
+        <SubSubElement
+          position={11}
+          type="earth"
+          active={layer3 || quadrant3}
+        />
+        <SubSubElement position={10} type="air" active={layer3 || quadrant3} />
+        <SubSubElement position={9} type="water" active={layer3 || quadrant3} />
+        <SubSubElement position={8} type="fire" active={layer3 || quadrant2} />
+        <SubSubElement position={7} type="earth" active={layer3 || quadrant2} />
+        <SubSubElement position={6} type="air" active={layer3 || quadrant2} />
+        <SubSubElement position={5} type="water" active={layer3 || quadrant2} />
+        <SubSubElement position={4} type="fire" active={layer3 || quadrant1} />
+        <SubSubElement position={3} type="earth" active={layer3 || quadrant1} />
+        <SubSubElement position={2} type="air" active={layer3 || quadrant1} />
+        <SubSubElement position={1} type="water" active={layer3 || quadrant1} />
       </Layer3>
       <Layer2>
-        <SubElement position={8} type="fire" row={row} layer={2} />
-        <SubElement position={7} type="earth" row={row} layer={2} />
-        <SubElement position={6} type="air" row={row} layer={2} />
-        <SubElement position={5} type="water" row={row} layer={2} />
-        <SubElement position={4} type="fire" row={row} layer={2} />
-        <SubElement position={3} type="earth" row={row} layer={2} />
-        <SubElement position={2} type="air" row={row} layer={2} />
-        <SubElement position={1} type="water" row={row} layer={2} />
+        <SubElement position={8} type="fire" active={layer2 || quadrant4} />
+        <SubElement position={7} type="earth" active={layer2 || quadrant4} />
+        <SubElement position={6} type="air" active={layer2 || quadrant3} />
+        <SubElement position={5} type="water" active={layer2 || quadrant3} />
+        <SubElement position={4} type="fire" active={layer2 || quadrant2} />
+        <SubElement position={3} type="earth" active={layer2 || quadrant2} />
+        <SubElement position={2} type="air" active={layer2 || quadrant1} />
+        <SubElement position={1} type="water" active={layer2 || quadrant1} />
       </Layer2>
       <Layer1>
-        <Element position={4} type="fire" row={row} layer={1} />
-        <Element position={3} type="earth" row={row} layer={1} />
-        <Element position={2} type="air" row={row} layer={1} />
-        <Element position={1} type="water" row={row} layer={1} />
+        <Element position={4} type="fire" active={layer1 || quadrant4} />
+        <Element position={3} type="earth" active={layer1 || quadrant3} />
+        <Element position={2} type="air" active={layer1 || quadrant2} />
+        <Element position={1} type="water" active={layer1 || quadrant1} />
       </Layer1>
     </Wrapper>
   )
