@@ -3,7 +3,7 @@ import { Body as EarthIcon } from '@styled-icons/ionicons-solid/'
 import { Brain as AirIcon } from '@styled-icons/boxicons-solid'
 import { Heart as WaterIcon } from '@styled-icons/entypo/'
 import { Sun as FireIcon } from '@styled-icons/boxicons-solid/'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type Pos = {
   top: string
@@ -110,12 +110,14 @@ type Props = {
 export default function SubSubElement(props: Props) {
   const POSITION: Pos = POSITIONS[props.position - 1]
   const COLOR = COLORS[props.type]
-  const [clicked, setClicked] = useState(false)
+  const [active, setActive] = useState<boolean>(false)
 
-  const active = props.active || clicked
+  useEffect(() => {
+    setActive(props.active)
+  }, [props.active])
 
   const handleClick = () => {
-    setClicked(!clicked)
+    setActive(!active)
   }
 
   return (
@@ -142,9 +144,8 @@ const Wrapper = styled.div<{ pos: Pos; active: boolean }>`
   top: ${(p) => p.pos.top};
   left: ${(p) => p.pos.left};
   /* border: 1px solid red; */
-  transition: scale 0.3s, filter 0.3s;
-  scale: ${(p) => (p.active ? '1.05' : '1')};
-  z-index: ${(p) => (p.active ? '9999' : '999')};
+  transition: all 0.3s;
+  z-index: ${(p) => (p.active ? '1' : '0')};
   filter: ${(p) =>
     p.active ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'grayscale(50%)'};
 `

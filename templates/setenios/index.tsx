@@ -22,21 +22,29 @@ export default function Setenios(props: any) {
       case 'ArrowUp':
         if (layer !== 3) {
           setLayer(layer + 1)
+          setQuadrant(0)
         }
         break
       case 'ArrowDown':
         if (layer !== 0) {
           setLayer(layer - 1)
+          setQuadrant(0)
         }
         break
       case 'ArrowLeft':
-        if (quadrant !== 0) {
+        if (quadrant !== 1) {
           setQuadrant(quadrant - 1)
+          setLayer(0)
+        } else {
+          setQuadrant(4)
         }
         break
       case 'ArrowRight':
         if (quadrant !== 4) {
           setQuadrant(quadrant + 1)
+          setLayer(0)
+        } else {
+          setQuadrant(1)
         }
         break
     }

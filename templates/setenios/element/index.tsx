@@ -3,7 +3,7 @@ import { Body as EarthIcon } from '@styled-icons/ionicons-solid/'
 import { Brain as AirIcon } from '@styled-icons/boxicons-solid'
 import { Heart as WaterIcon } from '@styled-icons/entypo/'
 import { Sun as FireIcon } from '@styled-icons/boxicons-solid/'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type Pos = {
   top: number | string
@@ -70,12 +70,17 @@ type Props = {
 export default function Element(props: Props) {
   const POSITION: Pos = POSITIONS[props.position - 1]
   const COLOR = COLORS[props.type]
-  const [clicked, setClicked] = useState(false)
+  const [active, setActive] = useState<boolean>(props.active)
 
-  const active = props.active || clicked
+  useEffect(() => {
+    setActive(props.active)
+    if (props.position === 1) {
+      console.log('Atualizou o state')
+    }
+  }, [props.active])
 
   const handleClick = () => {
-    setClicked(!clicked)
+    setActive(!active)
   }
 
   return (
@@ -110,7 +115,6 @@ const Wrapper = styled.div<{ pos: Pos; active: boolean }>`
     if (p.pos.verFlip) return ' scaleY(-1)'
   }};
   transition: scale 0.3s, filter 0.3s;
-  scale: ${(p) => (p.active ? '1.05' : '1')};
   z-index: ${(p) => (p.active ? '1' : '0')};
   filter: ${(p) =>
     p.active ? 'drop-shadow(0 0 5vh rgb(0 0 0 / 0.7))' : 'grayscale(50%)'};
