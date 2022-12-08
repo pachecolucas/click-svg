@@ -16,11 +16,8 @@ export default function Sou(props: Props) {
   )
 }
 const Wrapper = styled.div`
-  /* max-height: 200px; */
   height: fit-content;
   width: fit-content;
-  /* height: 100%;
-  width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;

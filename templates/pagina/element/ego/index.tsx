@@ -17,7 +17,6 @@ export default function Ego(props: Props) {
 }
 const Wrapper = styled.div`
   @media only screen and (max-device-width: 414px) {
-    min-width: 60px;
     min-height: 50px;
   }
   height: fit-content;

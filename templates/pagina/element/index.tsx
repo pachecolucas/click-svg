@@ -20,34 +20,26 @@ export type Props = {
     | '4diagonalL'
   subType?: 'sou' | 'ego' | 'simple' | 'last'
   img: number
-  row: number
-  isRow: number
+  active: boolean
 }
 
 export default function Element(props: Props) {
   return (
-    <Wrapper row={props.row} isRow={props.isRow}>
-      <Bg color="white">
-        {getContent(
-          props.type,
-          props.row === props.isRow || props.row === 6,
-          props
-        )}
-      </Bg>
+    <Wrapper active={props.active}>
+      <Bg color="white">{getContent(props.type, props.active, props)}</Bg>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div<{ row: number; isRow: number }>`
+const Wrapper = styled.div<{ active: boolean }>`
   outline: white 2px solid;
 
-  z-index: ${(p) => (p.row === p.isRow ? '1' : '0')};
+  z-index: ${(p) => (p.active ? '1' : '0')};
   transition: all 0.3s;
   min-height: 100%;
   /* height: 100%;
   width: 100%; */
-  height: ${(p) =>
-    p.row === p.isRow || p.row === 6 ? 'fit-content' : 'inherit'};
+  height: ${(p) => (p.active ? 'fit-content' : 'inherit')};
   width: 100%;
 `
 const Bg = styled.div<{ color: string }>`
