@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <nav>
-      <a href="/setenios">Setênios</a>
-    </nav>
-  )
+import Template from 'templates/setenios'
+
+export default function Setenios() {
+  return <Template />
 }
